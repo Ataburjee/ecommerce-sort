@@ -1,0 +1,46 @@
+#container{
+    display: grid;
+    grid-template-columns: repeat(4,1fr);
+    grid-template-rows: auto;
+    gap: 20px;
+}
+p{
+    font-size: 14px;
+}
+p+div{
+    display: flex;
+    gap: 20px;
+    align-items: center;
+}
+h2{
+    text-decoration: line-through;
+}
+
+#container>div{
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    padding: 10px;
+    border-radius: 10px;
+}
+#proceedToBag{
+    display: flex;
+    justify-content: flex-end;
+    margin-right: 20px;
+}
+#proceedToBag>button{
+    background-color: green;
+    width: 15%;
+    cursor: pointer;
+    height: 30px;
+    position: fixed;
+    border-radius: 10px;
+    color: white;
+}
+button{
+    cursor: pointer;
+    border-radius: 5px;
+    background-color: green;
+    color: white;
+}
+select{
+    margin: 10px;
+}

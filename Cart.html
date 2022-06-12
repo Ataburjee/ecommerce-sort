@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="Cart.css">
+</head>
+<body>
+    <button onclick="btnFunc()">Proceed to Checkout </button>
+    <div id="container"></div>
+</body>
+</html>
+<script>
+    let getFromMens = JSON.parse(localStorage.getItem("fromMens"))
+    //console.log(getFromMens)
+    //let cartArr = []
+    function displayData(getFromMens){
+        document.querySelector("#container").innerHTML = ""
+        getFromMens.forEach(function(el){
+       let box = document.createElement("div")
+
+       let img = document.createElement("img")
+       img.src = el.image_url
+       let Pname = document.createElement("p")
+       Pname.innerText = el.name
+
+       let box1 = document.createElement("div")
+
+       let Sprice =document.createElement("h1")
+       Sprice = "$"+el.price
+       let Pprice =document.createElement("h2")
+       Pprice.innerText ="$"+ el.strikedoffprice
+       
+       box1.append(Sprice,Pprice)
+       let btn = document.createElement("button")
+       btn.innerText = "Delete"
+
+       btn.addEventListener("click",function(){
+         cartFunc(el,index)
+       })
+       box.append(img,Pname,box1,btn)
+       document.querySelector("#container").append(box)
+   })
+    }
+
+    displayData(getFromMens)
+    
+
+   function cartFunc(el,index){
+    //    console.log(el,"inside delete")
+    getFromMens.splice(index,1)
+    displayData(getFromMens)
+    window.location.reload()
+   }
+</script>
